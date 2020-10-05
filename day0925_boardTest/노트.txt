@@ -1,0 +1,11 @@
+alter table board add fsize number;
+
+create table member(
+id varchar2(100) primary key,
+pwd varchar2(100),
+name varchar2(100),
+tel varchar2(100));
+
+
+연습) 회원가입 기능을 추가한다
+	단, 회원가입시 문자인증을 통해 올바른 전화번호일 때 가입을 처리 하도록한다.

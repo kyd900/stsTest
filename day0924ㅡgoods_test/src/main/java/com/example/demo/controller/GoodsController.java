@@ -1,0 +1,30 @@
+package com.example.demo.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.example.demo.dao.GoodsDao;
+import com.example.demo.vo.GoodsVo;
+
+@Controller
+public class GoodsController {
+	@Autowired
+	private GoodsDao dao;
+	public void setDao(GoodsDao dao) {
+		this.dao = dao;
+	}
+	@RequestMapping("/listGoods.do")
+	public void list(Model model) {
+		model.addAttribute("title", "상품목록");
+		model.addAttribute("list", dao.findAll());
+	}
+	
+	@RequestMapping("/detailGoods.do")
+	public void detail(Model model,int no) {
+		model.addAttribute("g",dao.findByNo(no));
+	}
+	
+}

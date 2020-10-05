@@ -1,0 +1,1 @@
+alter table board add fsize number;

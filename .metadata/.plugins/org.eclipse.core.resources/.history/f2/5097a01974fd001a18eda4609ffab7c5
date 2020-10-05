@@ -1,0 +1,30 @@
+package com.example.demo.db;
+
+import java.util.ArrayList;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+
+import com.example.demo.vo.DeptVo;
+	
+public class DeptManager {
+		
+		public static SqlSessionFactory sqlSessionFactory;
+	
+		static {
+			try {
+			String resource = "com/bit/db/sqlMapConfig.xml";
+			InputStream inputStream = Resources.getResourceAsStream(resource);
+			sqlSessionFactory =	 new SqlSessionFactoryBuilder().build(inputStream);
+			}catch(Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}//이게 무슨역할?
+		public ArrayList<DeptVo> selectAll(){
+		ArrayList<DeptVo> list = null;
+		
+		SqlSession session = SqlSessionFactory.
+		
+		return list;
+	}
+}

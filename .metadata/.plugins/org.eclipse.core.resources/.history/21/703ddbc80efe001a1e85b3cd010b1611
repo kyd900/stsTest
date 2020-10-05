@@ -1,0 +1,28 @@
+프로젝트 처음만들고 하는 설정 
+
+1. 어플리케이션 프로퍼티스 설정(서버설정)
+2. pom.xml에 jsp사용하기 위한 메이븐설정 (디펜던시 추가)
+3. db.properties만들어서 거기에 어플리케이션 프로퍼티스 내용 복붙 해서 자를꺼자르고 설정
+4. 3번과 동일한 db패키지에 sqlMapConfig.xml 파일을 만들어서 마이바티스 홈페이지 복붙하고
+<properties resource="com/example/demo/db/db.properties"/>
+	<typeAliases>
+		<typeAlias type="com.example.demo.vo.GoodsVo" alias="goodsVo"/>
+	</typeAliases>
+	
+	  <mapper resource="com/example/demo/db/GoodsMapper.xml"/>
+	  
+5.db매니저를 만들어서 처음설정
+
+public static SqlSessionFactory sqlSessionFactory;
+	static {
+		String resource = "com/example/demo/db/sqlMapConfig.xml";
+		try {
+		
+		InputStream inputStream = Resources.getResourceAsStream(resource);
+		sqlSessionFactory= new SqlSessionFactoryBuilder().build(inputStream);
+		}catch(Exception e) {
+			System.out.print("예외발생: "+e.getMessage());
+		}
+	}
+이것도 마이바티즈 사이트에있다
+	  

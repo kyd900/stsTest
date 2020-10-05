@@ -1,0 +1,20 @@
+package com.example.demo.db;
+
+import java.util.ArrayList;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+
+import com.example.demo.vo.DeptVo;
+	public static SqlSessionFactory
+
+
+	public class DeptManager {
+	public ArrayList<DeptVo> selectAll(){
+		ArrayList<DeptVo> list = null;
+		
+		SqlSession session = SqlSessionFactory.
+		
+		return list;
+	}
+}

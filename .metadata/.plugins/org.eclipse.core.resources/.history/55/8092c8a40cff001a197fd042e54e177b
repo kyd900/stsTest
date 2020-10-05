@@ -1,0 +1,44 @@
+package kr.co.youiwe.webservice;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class BitSms {
+	public void sendMsg(String to, String msg) {
+		public class sendsms {
+
+			/**
+			 * @param args
+			 */
+			public static void main(String[] args) {
+				
+
+				BufferedReader in;
+			    in = new BufferedReader(new InputStreamReader(System.in));
+
+				String smsID= "rola";	
+				String smsPW="bit123400";
+			
+				 // 보내는 번호010-9687-3487 입력할때 하이폰은 입력안한다
+				//받는 번호  : 010-2559-8279(선생님)
+				ServiceSMSSoapProxy sendsms = new ServiceSMSSoapProxy();
+				try{
+					
+				System.out.println("보내는번호를 입력하세요:");
+				String senderPhone= in.readLine();
+				System.out.println("받는번호를 입력하세요:");
+				String receivePhone= in.readLine();
+				System.out.println("내용을를 입력하세요:");
+				String smsContent= in.readLine();
+				String test1 = (smsID+smsPW+receivePhone);
+				CEncrypt encrypt = new CEncrypt("MD5",test1);
+				java.lang.String send=sendsms.sendSMS(smsID,encrypt.getEncryptData(), senderPhone, receivePhone, smsContent);
+		 		System.out.println("결과코드:"+send);
+				}catch(Exception e){
+				System.out.println("Exception in main:" +e);
+				}
+			}
+		}
+
+	}
+}
